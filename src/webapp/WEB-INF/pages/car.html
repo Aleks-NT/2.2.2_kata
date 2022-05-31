@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of cars</title>
+</head>
+<body>
+<div>
+    <h1>List of cars</h1>
+    <table>
+        <tr><th>Model</th><th>Color</th><th>Year</th></tr>
+        <th:block th:each="car : ${cars}">
+            <tr><td><p th:text="${car.getModel()}" /></td>
+                <td><p th:text="${car.getColor()}" /></td>
+                <td><p th:text="${car.getYear()}" /></td></tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>
