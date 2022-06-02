@@ -5,6 +5,7 @@ import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class CarService {
@@ -24,10 +25,11 @@ public class CarService {
 
 
     public List<Car> countCars(Integer count) {
-        if ((count == null) || (count >5)) {
+        if ((count == null) || (count > 5) || (count < 0)) {
             count = 5;
         }
-        return cars.subList(0, count);
+//        return cars.subList(0, count);
+        return cars.stream().limit(count).collect(Collectors.toList());
     }
 
 
